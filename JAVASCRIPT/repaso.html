@@ -23,6 +23,11 @@
             min-width: 90px;
         }
 
+        #carrusel img{ /* nos referimos a las imagenes del div con id carrusel para cuando pase el puntero por encima */
+            cursor: pointer; /* cambiar el cursor del mouse a una mano 👆 */
+        }   
+
+
     </style>
 </head>
 <body>
@@ -53,12 +58,14 @@
             relleno+='<img src="img/'+imagenes[i]+'" id="miniatura'+i+'" alt="imagenes naturaleza">'; /* concateno el array de imagenes */
         }
 
-        for (let i = 0; i < imagenes.length; i++){
-            
-        }
-
-
         document.getElementById('carrusel').innerHTML = relleno; /*busca el carrusel y su contenido lo sustituye por este otro valor (el relleno) */
+
+        for (let i = 0; i < imagenes.length; i++){ //LET delimita el ámbito de la variable i al bloque que hay entre llaves
+            document.getElementById('miniatura'+i).addEventListener('click', function(){
+
+                document.getElementById('lafoto').src = 'img/' + imagenes[i];
+            });
+        }
 
         /* controlar comportamiento (evento, accion, consecuencia) */
         document.getElementById('bpatras').addEventListener('click', function(){ /* pendiente de que se pulse y en el caso de que ocurra, hacer lo que hay dentro de la funcion: */
