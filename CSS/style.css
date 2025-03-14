@@ -1,0 +1,20 @@
+h1{
+    background-color: rgb(red, green, blue);
+}
+header{  /* se usa una imagen de fondo solo cuando es decorativa. Si tiene informacion importante no se pone de fondo */
+    background-color: rgb(200, 200, 200);
+    height: 200px; /* es la altura. Se le da dimensiones para que se vea la imagen de fondo */
+    background-image: url('../img/mariquita.jpg');
+    background-position: center; /* centrar imagen */
+    background-size: cover; /* tamaño imagen de fondo. Asi se adapta y cubre toda la etiqueta contenedora */
+}
+img{
+    width: 100% /* ocupa todo el ancho disponible de la caja */
+}
+main{
+    display: flex; /* indico que va a contener cajas flexibles */
+} /* aqui flex es un valor numerico de display */
+
+.cajaflex{
+    flex: 1; /* asi las imagenes tienen todas el mismo peso, por lo que ocupan el  mismo espacio en porcentaje al disponible */
+} /* aqui flex es una propiedad */

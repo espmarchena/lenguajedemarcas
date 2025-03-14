@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nivel1, .nivel2, .nivel3{
+            list-style: none; /* anula la propiedad del punto en la ul */
+            padding-left: 0px;
+        }
+        .nivel2, .nivel3{
+            display: none; /* oculta objetos */
+        }
+        /* .nivel1 li{  asi le digo que es a los 'li' que estan jerarquicamente dependientes de 'nivel1', en este caso toda la caja */
+        .nivel1 > li{ /* así le digo que es para los 'li' que dependen directamente del 'nivel1' . (digamos los li de 1er nivel dentro de este 'ul')*/
+            display: inline-block; /* poner los objetos en linea, uno al lado del otro */
+        }
+        .nivel3 > li {
+            display: inline-block; /* poner los objetos en linea, uno al lado del otro */
+        }
+        .nivel1 li:hover > .nivel2{ /* para el nivel2 que depende directamente de los li dependientes del nivel1 */
+            display: block; /* poner los objetos uno abajo del otro */
+            position: absolute;    /* para sacar de la linea de escritura (o de la caja) y dejar flotando los objetos. Hay que indicarle un orden, siempre usarlo con z-index */
+            z-index: 10; /* ordena los objetos cuando los dejas flotando. orden en que se apilan. NO OLVIDAR NUNCA SI USAMOS POSITION */
+        }
+        .nivel2 li:hover > .nivel3{
+            display: inline-block;
+            position: left;    /* para sacar de la linea de escritura (o de la caja) y dejar flotando los objetos. Hay que indicarle un orden, siempre usarlo con z-index */
+            z-index: 10; /* ordena los objetos cuando los dejas flotando. orden en que se apilan. NO OLVIDAR NUNCA SI USAMOS POSITION */
+        }
+        .nivel2 li > .nivel3 { /* para el nivel3 que depende directamente de los li dependientes del nivel2 */
+            display: inline-block; /* poner los objetos en linea, uno al lado del otro */
+        }
+ 
+        /* ******me falta que desaparezca el nivel3 hasta que pase x encima el raton****** */
+ 
+    </style>
+</head>
+<body>
+<header> <!-- aqui se pone todo lo que se va a repetir en la web. Esto es el 'encabezado'. Ej. Imagenes de fondo, logotipo......-->
+    <nav> <!-- para poner el menu de navegacion -->
+ 
+        <ul class="nivel1"> <!-- así asigno un estilo a este ul, lo tengo que crear tb en el head -->
+            <li> <a href="index.html">Portada</a></li>
+            <li> <a href="catalogo.html">Catálogo</a>
+                <ul class="nivel2"> <!-- así asigno un estilo a este ul, lo tengo que crear tb en el head -->
+                    <li> <a href="coches.html">coches</a>
+                        <ul class="nivel3">
+                            <li> <a href="seat.html">seat</a></li>
+                            <li> <a href="barcelona.html">volkswagen</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="motos.html">motos</a>
+                        <ul class="nivel3">
+                            <li> <a href="seat.html">ducati</a></li>
+                            <li> <a href="barcelona.html">yamaha</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="patinetes.html">patienes</a>
+                        <ul class="nivel3">
+                            <li> <a href="seat.html">xiaomi</a></li>
+                            <li> <a href="barcelona.html">razor</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li> <a href="sede.html">Sede</a>
+                <ul class="nivel2"> <!-- así asigno un estilo a este ul, lo tengo que crear tb en el head -->
+                    <li> <a href="andalucia.html">Andalucía</a>
+                        <ul class="nivel3">
+                            <li> <a href="sevilla.html">sevilla</a></li>
+                            <li> <a href="huelva.html">huelva</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="espana.html">España</a>
+                        <ul class="nivel3">
+                            <li> <a href="madrid.html">madrid</a></li>
+                            <li> <a href="barcelona.html">barcelona</a></li>
+                        </ul>
+                    </li>
+                    </li>
+                    <li> <a href="europa.html">Europa</a>
+                        <ul class="nivel3">
+                            <li> <a href="francia.html">francia</a></li>
+                            <li> <a href="alemania.html">alemania</a></li>
+                        </ul>
+                    </li>
+                    </li>
+                </ul>
+            </li>
+            <li> <a href="contacto.html">Contacto</a></li>
+        </ul>
+ 
+    </nav>
+ 
+</header>  
+<main> <!-- Para indicar que el contenido especifico de la pagina está en el Main -->
+    <aside> <!-- contenido que está indirectamente relacionado con el contenido principal de la pagina -->
+ 
+    </aside>
+    <article> <!-- Ej. mensaje en un foro, un artículo de una revista o un periódico, una entrada de blog, el comentario de un usuario, un widget o gadget interactivo, o cualquier otro elemento de contenido independiente -->
+ 
+    </article>
+    <section> <!-- sección genérica independiente de una web, que no tiene un elemento semántico más específico para representarla -->
+        <div> <!-- crea una caja para darle estilo -->
+        </div>
+    </section>
+</main>
+<footer> <!-- aqui se pone todo lo que se va a repetir en la web, como el copyright, cookies, quiénes somos... Son 'otros enlaces' -->
+ 
+</footer>
+</body>
+</html>

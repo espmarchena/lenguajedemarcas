@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LEONARDO TORRES QUEVEDO</title>
+    <style>
+        .imgmain{
+            float:left;
+            margin: 3px 10px 10px 0px;
+            flex: 1;           
+        }
+        
+        .parrafoheader{
+            font-size: 1.2em;
+        }
+
+        p{
+            flex: 1;
+            float:right;
+            margin: 3px 0px 10px 10px;
+        }
+
+        img{
+            width: 100%;
+            border-radius: 4%;
+        }
+
+        .nav{
+            background-color: blue;
+            text-align: center;
+        }
+
+        .nivel1 > li {
+            position: relative;
+            display: inline-block;
+            background-color: blue;
+        }
+
+        .nivel2 {
+            display: none;
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            background-color: blue;
+        }
+
+        .nivel1 > li:hover .nivel2 {
+            display: block;
+            background-color: blue;
+            color:white;
+        }
+        
+        a { /* Estilos de los enlaces */
+            padding: 10px 15px;
+            display: block;
+            color:white;
+            
+        }
+
+        .encabezado{
+            flex: 1;
+        }
+
+        .imagen-contenedor {
+            width: 100%;
+            height: 20%;
+            background-position: center;
+        }
+        
+
+        .texto-encabezado{
+            color: rgb(0, 0, 0);
+            position: relative;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+            transform: translate(-80%, -400%);
+        }
+        
+        .tabla{
+            clear:both;
+            align-items: center;
+            border-collapse: collapse;
+        }
+
+        .parrafo1{
+            background-color: blue;
+        }
+        th{
+            border: 1px solid #103155;
+            
+        }
+
+    </style>
+</head>
+<body>
+  
+    <header> <!-- Aquí se pone todo lo que se va a repetir en la web. Esto es el 'encabezado'. Ej. Imágenes de fondo, logotipo... -->
+        
+        <div class="encabezado">
+            <a>
+                <div>
+                    <img class="imagen-contenedor" src="https://cdn.pixabay.com/photo/2024/02/03/18/45/diamond-8550842_1280.jpg"
+                    style="width: 100%; height: 150px;" 
+                    alt="imagen de encabezado">
+                    <p class="texto-encabezado">Leonardo Torres Quevedo: Inventor Extraordinario</p>
+                </div>
+            </a>
+        </div>
+
+    </header>
+
+    <main> <!-- Para indicar que el contenido especifico de la pagina está en el Main -->
+
+        <div class="nav"> <!-- DIV QUE CONTIENE EL MENU DEL ENCABEZADO -->
+            <nav> <!-- Para poner el menú de navegación -->
+                <ul class="nivel1">
+                    <li> <!-- transporte -->
+                        <a title="Transporte" href="">Transporte</a>
+                        <ul class="nivel2">
+                            <li><a href="#">Teleférico</a></li>
+                            <li><a href="#">Dirigible</a></li>
+                        </ul>
+                    </li>
+                        
+                    <li> <!-- Matemáticas -->
+                        <a title="Matemáticas" href="">Matemáticas</a>
+                        <ul class="nivel2">
+                            <li><a href="#">Calculadora</a></li>
+                            <li><a href="#">Ajedrecista</a></li>
+                        </ul>
+                    </li>
+        
+                    <li> <!-- Electrónica -->
+                        <a title="Electrónica" href="">Electrónica</a>
+                        <ul class="nivel2">
+                            <li><a href="#">Telekino</a></li>
+                            <li><a href="#">Cine</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div> <!-- FIN DEL DIV QUE CONTIENE EL MENU DEL ENCABEZADO -->
+        
+        <div class="headercontenedor">
+            <div class="imgmain">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/1921_Leonardo_Torres_Quevedo.jpg/800px-1921_Leonardo_Torres_Quevedo.jpg" style="width: 50%; height: auto;"
+                alt="QUEVEDO"></div>
+
+            <div class="parrafoheader">
+            <p>
+                <div>Leonardo Torres Quevedo fue un ingeniero e inventor español cuyas
+                contribuciones abarcan la ingeniería civil, la matemática aplicada y la
+                electrónica. Entre sus inventos más destacados se encuentran el telekino, el
+                transbordador aéreo y el ajedrecista automático.</div>
+            </p> 
+                
+            </div>
+
+            <div class="tabla">
+                <table>
+                    <tr>
+                        <th><p class= "parrafo1">INVENTO</p> </th>
+                       
+                        <th><p class= "parrafo1">AÑO</p> </th>
+             
+                        <th><p class= "parrafo1">UTILIDAD</p> </th>
+                    </tr>
+                    <tr>
+                        <th><p class= "parrafo">Telekino</p> </th>
+             
+                        <th><p class= "parrafo">1903</p>
+                        </th>
+                        <th><p class= "parrafo">Primer sistema de control remoto inalámbrico</p> </th>
+                    </tr>
+                    <tr>
+                        <th><p class= "parrafo">Transbordador aéreo</p> </th>
+             
+                        <th><p class= "parrafo">1907</p>
+                        </th>
+                        <th><p class= "parrafo">Transporte seguro en montañas</p> </th>
+                    </tr>
+                    <tr>
+                        <th><p class= "parrafo">Ajedrecista</p> </th>
+             
+                        <th><p class= "parrafo">1912</p>
+                        </th>
+                        <th><p class= "parrafo">Primera máquina capaz de jugar al ajedrez</p> </th>
+                    </tr>            
+                </table>  
+            </div>
+
+            <div class="partes">
+                <div style="text-align: left;">   
+                    <p>Partes destacadas de sus inventos:</p>
+                </div>
+                <ul>
+                    <li>Telekino: Antena inalámbrica
+                    </li>
+                    <li>Transbordador: Cables de acero resistentes
+                    </li>
+                    <li>Ajedrecista: Motor mecánico
+                    </li>
+                </ul>          
+            </div>
+
+            <div>
+
+                <table>
+                    <tr>
+                        <th>
+                            <a title="Ajedrecista">
+                                <img style="height: 50%; width: 50%;" 
+                                     src="https://media.istockphoto.com/id/1438908958/es/foto/primer-plano-de-piezas-de-ajedrez-en-una-superficie-reflectante-del-tablero-de-espejos-wi.jpg?s=1024x1024&w=is&k=20&c=AuZFP6TXPONnDxK0bQUXKK9PLrMIZxFWbYnp98Xx24U=" 
+                                     alt="Ajedrecista">
+                            </a>
+                        </th>
+                        <th>
+                            <a title="Telekino">
+                                <img style="height: 50%; width: 50%;" 
+                                     src="https://media.istockphoto.com/id/1593718955/es/foto/tel%C3%A9fono-retro-con-espacio-de-copia-sobre-fondo-azul.jpg?s=1024x1024&w=is&k=20&c=G5EQ4V71OPjGgPQMyeSCywmJIVMjm_kEtl2exYpa_yo=" 
+                                     alt="Telekino">
+                            </a>
+                        </th>
+                        <th>
+                            <a title="Transbordador aéreo">
+                                <img style="height: 50%; width: 50%;" 
+                                     src="https://media.istockphoto.com/id/1344443930/es/foto/lanzamiento-de-cohetes-del-transbordador-espacial-en-el-cielo-y-nubes-al-espacio-exterior.jpg?s=1024x1024&w=is&k=20&c=Gn-3VJy8ObUdA_--22RKtLe-IMH_9MXDFAcR0Jf5Fa0=" 
+                                     alt="Transbordador aéreo">
+                            </a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th><p style="text-align: center;">Ajedrecista</p></th>
+                        <th><p style="text-align: center;">Telekino</p></th>
+                        <th><p style="text-align: center;">Transbordador aéreo</p></th>
+                    </tr>
+                </table>  
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer> <!-- aqui se pone todo lo que se va a repetir en la web, como el copyright, cookies, quiénes somos... Son 'otros enlaces' -->   
+    </footer>
+
+</body>
+</html>

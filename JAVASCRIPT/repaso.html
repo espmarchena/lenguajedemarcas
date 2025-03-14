@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 90%;
+        }
+        #lienzo{ /* # para llamar a un atributo al que se le quiere dar un estilo */
+            width: 60%;
+            background-color: blueviolet; /* color de fondo para que chivatee si la img esta centrada */
+            margin: auto; /* para izq y dcha solamente */
+            /*text-align: center; /* por defecto la img actua como una 'letra grande' porque es un display-inline a no ser que se le indique lo contrario*/
+        }
+        .cajacentrada{
+            text-align: center;
+        }
+
+        #carrusel img{ /* nos referimos a las imagenes del div con id carrusel */
+            width: 10%;
+            min-width: 90px;
+        }
+
+    </style>
+</head>
+<body>
+  <div id= "lienzo" class="cajacentrada">
+    <img src="img/boreal.jpg" alt="Aurora Boreal" id="lafoto">
+  </div> 
+
+  <div id="carrusel" class="cajacentrada">
+    <img src="img/boreal.jpg" alt="adasd">
+    <img src="img/nieve.jpg" alt="adasd">
+    <img src="img/oceano.jpg" alt="adasd">
+  </div>
+
+
+  <div class="cajacentrada">
+    <input type="button" id="bpatras" value="patras"> <!-- delante de los nombres de los atributos se pone una b -->
+    <input type="button" id="bpalante" value="palante"> <!-- delante de los nombres de los atributos se pone una b -->
+  </div>
+
+  <script> /* para indicar que trabajamos con javascript. Va debajo del body */
+
+    document.addEventListener('DOMContentLoaded', function(){ /* si se ejecuta lo que hay aqui dentro, tendremos la garantia de que el body(document) se ha cargado al completo */
+        let imagenes = ['boreal.jpg','nieve.jpg','oceano.jpg'] /* let es para inicializar una variable */
+        let puntero = 0;
+
+        let relleno='';
+        for (let i = 0; i < imagenes.length; i++){
+            relleno+='<img src="img/'+imagenes[i]+'" id="miniatura'+i+'" alt="imagenes naturaleza">'; /* concateno el array de imagenes */
+        }
+
+        for (let i = 0; i < imagenes.length; i++){
+            
+        }
+
+
+        document.getElementById('carrusel').innerHTML = relleno; /*busca el carrusel y su contenido lo sustituye por este otro valor (el relleno) */
+
+        /* controlar comportamiento (evento, accion, consecuencia) */
+        document.getElementById('bpatras').addEventListener('click', function(){ /* pendiente de que se pulse y en el caso de que ocurra, hacer lo que hay dentro de la funcion: */
+            
+            puntero = (puntero <= 0) ? imagenes.length-1 : puntero-1; //ternario:::: condición ? valorSiVerdadero : valorSiFalso
+            /*
+            if(puntero <= 0){
+                puntero = imagenes.length-1; // si es igual o menor que cero, que empiece por el final del array. 
+                //Lo indicamos con la propiedad .lenght
+            }
+            else{
+                puntero --; //si no es cero, restamos posicion
+            }
+            */
+
+            document.getElementById('lafoto').src = 'img/' + imagenes[puntero]; /* dentro del body, busca la foto y presta atencion al src que es la propiedad que queremos alterar. Del array imagenes coge la imagen que toca, que esta en la variable puntero*/
+        }) 
+
+        document.getElementById('bpalante').addEventListener('click', function(){
+            puntero = (puntero >= imagenes.length-1) ? 0 : puntero+1; //ternario:::: condición ? valorSiVerdadero : valorSiFalso
+
+            document.getElementById('lafoto').src = 'img/' + imagenes[puntero]; /* dentro del body, busca la foto y presta atencion al src que es la propiedad que queremos alterar. Del array imagenes coge la imagen que toca, que esta en la variable puntero*/ 
+
+        })
+        
+
+
+    }); /* "EL DOCUMENT ES COMO SE LE LLAMA AL BODY EN JS". CREAMOS UN EVENTO, EN PARAMETROS(LO QUE QUEREMOS QUE CONTROLE, Y LA FUNCION QUE QUEREMOS QUE SE EJECUTE) Y EN LAS LLAVES DE DICHA FUNCION PONEMOS EL CODIGO QUE QUEREMOS QUE SE EJECUTE.
+    EL LISTENER ESTA PENDIENTE DE QUE EL BODY CARGUE AL COMPLETO ANTES DE QUE SE EJECUTE EL JS */
+
+  </script>
+
+</body>
+</html>

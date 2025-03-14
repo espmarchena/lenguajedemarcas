@@ -1,0 +1,147 @@
+/* Estilo para el header */
+header {
+    width: 100%;
+    display: flex;            /* Activa el modo Flexbox */
+    justify-content: center;  /* Centra los elementos dentro del header */
+    align-items: center;      /* Alinea los elementos en el centro verticalmente */
+    padding: 20px;
+    box-sizing: border-box;   /* Asegura que el padding no afecte el tamaño total */
+    background-color: #f4f4f4; 
+}
+
+.header-top {
+    padding: 20px; /* Añadir espacio alrededor del párrafo */
+    color: #103155; /* Color de texto blanco para mejor contraste */
+    text-align: center; /* Centrar el texto dentro del contenedor */
+}
+
+.fp p {
+    font-size: 2em; 
+    margin: 20px; 
+    padding: 20px; 
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    align-items: center; /* Centra el contenido horizontalmente */
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+nav {
+    width: 100%;
+    text-align: center;
+}
+
+a{
+    color: white;
+    font-family: fantasy;
+    font-size: 1.2em;
+}
+
+/* Contenedor del div principal */
+.principal {
+    display: flex; /* Activa Flexbox */
+    justify-content: space-around;  /* Espacia los elementos hijos */
+    flex-wrap: wrap;  /* Permite que los elementos se muevan a la siguiente línea */
+    border: 1px solid #103155;
+    padding: 20px;
+    margin-top: 20px; /* Separa este div del header */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    flex-direction: column; /* Alinea los sub-divs uno debajo del otro */
+
+    background-color: #2A3B4F;
+}
+
+/* Estilo para los div hijos */
+.hijo {
+    display: grid; /* Usa grid en lugar de flex para mejor control de filas y columnas */
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 10px; /* Espacio entre los subdiv */
+    width: 100%; /* Ocupa todo el ancho del padre */
+    box-sizing: border-box;
+    background-color: #445C72; /* Color del fondo de los hijos */
+    padding: 10px;
+}
+
+/* Estilo para los subdiv */
+.subdiv {
+    border: 1px solid #589ce3; /* Borde para visualización */
+    padding: 5px;
+    margin: 5px;
+    display: flex;             /* Activa el modo Flexbox */
+    flex-direction: column;    /* Alinea los elementos en columna */
+    align-items: center;       /* Centra los elementos dentro del subdiv */
+    flex-grow: 1;              /* Asegura que todos los subdivs crezcan igualmente */
+    justify-content: center;   /* Centra los elementos verticalmente dentro de cada subdiv */
+    width: 100%;               /* Asegura que el subdiv ocupe todo el ancho disponible */
+    box-sizing: border-box;    /* Asegura que el padding no afecte el tamaño total */
+    /* Ajustes de tamaño */
+    height: auto;             /* Establece una altura fija para todos los subdiv */
+    min-height: 250px;         /* Evita que se haga más pequeño */
+
+    background-color: rgb(160, 196, 224);
+}
+
+.imgsubdiv{ /* CONTROLA EL TAMAÑO DE LA IMAGEN DE LOS SUBDIV */
+    width: 300px; /* Establece un ancho fijo */
+    height: auto; /* Mantiene la proporción */
+    max-width: 100%; /* Ocupa el ancho máximo del contenedor */
+}
+
+.imgsubdivRA{ /* CONTROLA EL TAMAÑO DE LA IMAGEN DE LOS SUBDIV */
+    width: 200px; /* Establece un ancho fijo */
+    height: auto; /* Mantiene la proporción */
+    max-width: 100%; /* Ocupa el ancho máximo del contenedor */
+}
+
+.img {
+    border-radius: 6px;
+    max-width: 100%;      /* Asegura que la imagen no se desborde */
+    max-height: 80%;
+    height: 80%;         /* Mantiene la proporción de la imagen */
+    display: block;       /* Elimina el espacio en línea debajo de la imagen */
+    margin: 0 auto;       /* Centra la imagen dentro de su contenedor */
+}
+
+footer {
+    padding: 20px;
+    background-color: #f1f1f1; /* Fondo para el footer */
+}
+
+.parrafoheader {
+    display: flex; /* Activar Flexbox */
+    justify-content: space-between; /* Distribuir el espacio entre los elementos */
+    align-items: center; /* Alinear los elementos verticalmente */
+    width: 100%; /* Asegurar que ocupe todo el ancho disponible */
+}
+
+.parrafoheader p {
+    margin: 0; /* Eliminar márgenes adicionales */
+    color: #333; /* Color de texto */
+}
+
+.autor{
+    font-family: fantasy;
+    font-size: 1.6em; /* Tamaño de la fuente */
+    display: flex;
+    flex-direction: column; /* Apila los elementos uno encima del otro */
+    text-align: center; /* Alinea el texto en el centro */
+}
+
+.titulo {
+    margin-bottom: 5px; /* Espacio entre "Autor:" y el nombre */
+}
+
+.nombre {
+    font-family: fantasy;
+}
+
+.parrafoheader img {
+    height: 130px; /* Ajusta la altura de la imagen */
+    width: auto; /* Mantiene la proporción de la imagen */
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--  -->
+    <script> /* para indicar que trabajamos con javascript. Siempre va en el head */
+
+        function saludo() { /* funcion para saludar */
+    //      let mensaje = 'Esto es un aviso'; /* let es para inicializar una variable */
+    //      alert(mensaje); /* metodo para arrojar un aviso. Necesita parametro tipo String*/
+    //      alert('Esto es otro aviso'); /* otra forma de hacerlo */
+
+            let nombre = prompt('¿Cómo te llamas?'); /* prompt() es para pedir al usuario que introduzca un texto y pasará el mensaje que haya en los parametros. Tb se puede dejar vacio y que no arroje mensaje */
+    //      alert('Buenas tardes, ' + nombre); /* concateno con la variable del nombre */
+
+            /* ALTERAR OBJETOS DEL BODY. SE USAN ID */
+            document.getElementById('encabezado').innerHTML = 'Bienvenid@, ' + nombre; /* para seleccionar un elemento del documento por medio del valor del atributo id que se le haya asignado. O sea, esta buscando un elemento llamado encabezado dentro del documento (body) */
+            /* innerHTML es el contenido, en este caso del h1, y le estoy diciendo que machaque lo que pone inicialmente por lo que le pongamos despues del simbolo = */
+        } 
+
+        /* ALTERAR PROPIEDADES DE LOS ESTILOS */
+        function fondo(color){
+            document.getElementById('encabezado').style.backgroundColor = color; /* esta buscando un elemento llamado encabezado dentro del documento (body) y mira en los estilos y busca la propiedad del color de fondo del parametro color */
+        }
+
+        <!--  -->
+        function cambiaFoto(foto){
+            document.getElementById('lafoto').src = 'img/' + foto; /* esta buscando un elemento llamado lafoto dentro del documento (body) y mira los src y coge las imagenes */
+        }
+
+    </script>
+</head>
+<body onLoad="saludo();"> <!-- onLoad es el evento con el que hacemos que cargue el body antes de cargar la funcion que hace el saludo -->
+    
+    <h1 id="encabezado"> HOLA GENTE </h1>
+
+    <input type="button" value="ROJO" onMouseUp="fondo('#FF0000');" >
+    <input type="button" value="AZUL" onMouseUp="fondo('#0000FF');" >
+    <input type="button" value="NARANJA" onMouseUp="fondo('#FF8000');" >
+    <!-- input se usa para crear controles interactivos, en este caso un boton. onMousseUp es el evento. Especifica qué debe suceder cuando se presiona y se suelta el botón del raton -->
+
+    <div id="marco">
+        <img src="" width="450" id="lafoto">
+    </div>
+    <input type="button" value="Foto1" onMouseUp="cambiaFoto('boreal.jpg');" >
+    <input type="button" value="Foto2" onMouseUp="cambiaFoto('nieve.jpg');" >
+    <input type="button" value="Foto3" onMouseUp="cambiaFoto('oceano.jpg');" >
+
+
+</body>
+</html>

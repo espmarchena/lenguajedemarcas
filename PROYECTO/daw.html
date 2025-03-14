@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>DAW</title>
+    <link rel="stylesheet" href="../CSS/styleproyecto.css">
+    <style> 
+        /* Contenedor del header */
+        .header-container {
+            position: relative;
+            width: 100%;
+            height: 100%; /* o una altura específica */
+        }
+    
+        /* Contenedor del menú */
+        nav {
+            width: 100%;
+            background-color: #103155;
+            padding: 10px 0;
+            position: absolute; /* Posiciona el menú en la parte inferior del contenedor */
+            bottom: 0;
+            left: 0;
+            text-align: center; /* Centra el texto del menú */
+        }
+    
+        /* Menú de nivel 1 */
+        .nivel1 {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around; /* Espacio entre los elementos */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            background-color: #445C72;
+            border: solid #103155;
+            border-radius: 6px;
+            text-align: center;
+            width: 100%;
+            color: white;
+        }
+    
+        .nivel1 > li {
+            position: relative; /* Necesario para submenús */
+            flex: 1; /* Cada elemento ocupa el mismo espacio */
+        }
+    
+        .nivel1 > li > a {
+            text-decoration: none;
+            display: block;
+            padding: 10px 15px;
+            color: #4cdce9;
+            transition: background-color 0.3s;
+        }
+    
+        .nivel1 > li > a:hover {
+            background-color: #2a68aa;
+        }
+    
+        /* Submenús */
+        .nivel2, .nivel3, .nivel4 {
+            display: none;
+            position: absolute;
+            background-color: #445C72;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 10;
+        }
+    
+        .nivel1 li:hover > .nivel2,
+        .nivel2 li:hover > .nivel3,
+        .nivel3 li:hover > .nivel4 {
+            display: block; /* Muestra submenús al pasar el mouse */
+        }
+    
+        .nivel2 li, .nivel3 li, .nivel4 li {
+            text-align: left;
+        }
+    
+        .nivel2 {
+            top: 100%; /* Aparece directamente debajo del menú principal */
+            left: 0;
+            width: 100%; /* Alineación total con el ancho */
+        }
+    
+        .nivel3 {
+            left: 100%; /* Submenú aparece al lado del padre */
+            top: 0;
+        }
+    
+        .nivel4 {
+            left: 100%; /* Submenú más profundo al lado del nivel 3 */
+            top: 0;
+        }
+    
+        .nivel2 > li > a, 
+        .nivel3 > li > a, 
+        .nivel4 > li > a {
+            padding: 10px 15px;
+            color: white;
+            display: block;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+    
+        .nivel2 > li > a:hover, 
+        .nivel3 > li > a:hover, 
+        .nivel4 > li > a:hover {
+            background-color: #2a68aa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-top">
+    
+                <div class="fp">
+                    <p>ASIGNATURAS DEL CICLO DAW</p>
+                </div>
+            </div>
+
+            <div> <!-- DIV QUE CONTIENE EL MENU DEL ENCABEZADO -->
+                <nav> <!-- Para poner el menú de navegación -->
+                    <ul class="nivel1"> <!-- Nivel principal -->
+                        <li> <!-- Nueva lista para agrupar ciclos -->
+                            <a title="Ciclos Formativos" href="#">CICLOS</a>
+                            <ul class="nivel2"> <!-- Sublista para los ciclos -->
+                                <li> <!-- DAM ciclo -->
+                                    <a title="Desarrollo de Aplicaciones Multiplataforma"
+                                        href="https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza/fp-grado-superior/detalle-titulo?idTitulo=51">
+                                        Desarrollo de Aplicaciones Multiplataforma</a>
+                                    <ul class="nivel3">
+                                        <li>
+                                            <a href="#">DESARROLLO DE INTERFACES</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="#">RA1</a></li>
+                                                <li> <a href="#">RA2</a></li>
+                                                <li> <a href="#">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">ACCESO A DATOS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="#">RA1</a></li>
+                                                <li> <a href="#">RA2</a></li>
+                                                <li> <a href="#">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">SISTEMAS DE GESTIÓN EMPRESARIAL</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="#">RA1</a></li>
+                                                <li> <a href="#">RA2</a></li>
+                                                <li> <a href="#">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li> <!-- DAW ciclo -->
+                                    <a title="Desarrollo de Aplicaciones Web"
+                                        href="https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza/fp-grado-superior/detalle-titulo?idTitulo=56">
+                                        Desarrollo de Aplicaciones Web</a>
+                                    <ul class="nivel3">
+                                        <li>
+                                            <a href="https://www.w3schools.com/java/default.asp">PROGRAMACIÓN</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="seat.html">TIPOS DE DATOS</a></li>
+                                                <li> <a href="https://www.w3schools.com/java/java_variables.asp">VARIABLES</a></li>
+                                                <li> <a href="https://www.w3schools.com/java/java_operators.asp">OPERACIONES ARITMÉTICAS</a></li>
+                                                <li> <a href="https://www.w3schools.com/java/java_booleans.asp">OPERACIONES RELACIONALES</a></li>
+                                                <li> <a href="https://www.w3schools.com/java/java_conditions.asp">OPERACIONES LÓGICAS</a></li>
+                                                <li> <a href="https://www.w3schools.com/java/java_arrays.asp">ARRAYS</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">SISTEMAS INFORMÁTICOS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="https://concepto.de/componentes-de-una-computadora/l">COMPONENTES Y CARACTERÍSTICAS</a></li>
+                                                <li> <a href="https://es.wikipedia.org/wiki/Sistema_operativo">SISTEMAS OPERATIVOS</a></li>
+                                                <li> <a href="https://es.wikipedia.org/wiki/Dispositivo_de_almacenamiento_de_datos">ESTRUCTURAS DE ALMACENAMIENTO</a></li>
+                                                <li> <a href="https://platzi.com/clases/2292-terminal/37343-que-es-un-comando/#:~:text=Un%20comando%20es%20un%20mensaje,la%20indicaci%C3%B3n%20que%20pueda%20enviarse.">COMANDOS Y HERRAMIENTAS GRÁFICAS</a></li>
+                                                <li> <a href="https://es.wikipedia.org/wiki/Sistema_operativo_de_red">SISTEMAS EN RED</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#">BASE DE DATOS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="">ELEMENTOS DE UNA BBDD</a></li>
+                                                <li> <a href="">MODELO RELACIONAL</a></li>
+                                                <li> <a href="">CONSULTAR INFORMACIÓN EN UNA BBDD</a></li>
+                                                <li> <a href="">MODIFICAR INFORMACIÓN EN UNA BBDD</a></li>
+                                                <li> <a href="">SISTEMA GESTOR BBDD</a></li>
+                                                <li> <a href="">DIAGRAMAS ENTIDAD/RELACIÓN</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+            
+                                <li> <!-- ASIR ciclo -->
+                                    <a title="Administración de Sistemas Informáticos en Red"
+                                        href="https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza/fp-grado-superior/detalle-titulo?idTitulo=50">
+                                        Administración de Sistemas Informáticos en Red</a>
+                                    <ul class="nivel3">
+                                        <li>
+                                            <a href="">IMPLANTACIÓN DE SISTEMAS OPERATIVOS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="">RA1</a></li>
+                                                <li> <a href="">RA2</a></li>
+                                                <li> <a href="">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">PLANIFICACIÓN Y ADMINISTRACIÓN DE REDES</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="">RA1</a></li>
+                                                <li> <a href="">RA2</a></li>
+                                                <li> <a href="">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">GESTIÓN DE BASE DE DATOS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="">RA1</a></li>
+                                                <li> <a href="">RA2</a></li>
+                                                <li> <a href="">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+            
+                                <li> <!-- MICRO ciclo -->
+                                    <a title="Sistemas Microinformáticos y Redes"
+                                        href="https://www.juntadeandalucia.es/educacion/portals/web/formacion-profesional-andaluza/fp-grado-medio/detalle-titulo?idTitulo=17">
+                                        Sistemas Microinformáticos y Redes</a>
+                                    <ul class="nivel3">
+                                        <li>
+                                            <a href="">APLICACIONES OFIMÁTICAS</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="sevilla.html">RA1</a></li>
+                                                <li> <a href="huelva.html">RA2</a></li>
+                                                <li> <a href="huelva.html">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">MONTAJE Y MANTENIMIENTO DE EQUIPO</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="madrid.html">RA1</a></li>
+                                                <li> <a href="barcelona.html">RA2</a></li>
+                                                <li> <a href="barcelona.html">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="">REDES LOCALES</a>
+                                            <ul class="nivel4">
+                                                <li> <a href="francia.html">RA1</a></li>
+                                                <li> <a href="alemania.html">RA2</a></li>
+                                                <li> <a href="alemania.html">RA3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        
+        <div class="principal">
+            <!-- Primer div hijo dentro del div principal -->
+            <div class="hijo">
+                <div class="subdiv">
+                    <a title="PROGRAMACION" href="/PROYECTO/programacion.html" target="_blank">
+                        <div class="imgsubdiv">
+                            <img src="../img/PROGRAMACION.png" class="img" alt="Programación">
+                            <p style="text-align:center;">PROGRAMACIÓN</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="subdiv">
+                    <a title="SISTEMAS INFORMATICOS" href="" target="_blank">
+                        <div class="imgsubdiv">
+                            <img src="../img/SISTEMASINFORMATICOS.png" class="img" alt="Sistemas Informáticos">
+                            <p style="text-align:center;">SISTEMAS INFORMÁTICOS</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        
+            <!-- Segundo div hijo dentro del div principal -->
+            <div class="hijo">
+                <div class="subdiv">
+                    <a title="BASES DE DATOS" href="" target="_blank">
+                        <div class="imgsubdiv">
+                            <img src="../img/BBDD.png" class="img" alt="Bases de Datos">
+                            <p style="text-align:center;">BASES DE DATOS</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="subdiv">
+                    <a title="LENGUAJE DE MARCAS" href="" target="_blank">
+                        <div class="imgsubdiv">
+                            <img src="../img/LENGUAJEDEMARCAS.png" class="img" alt="Lenguaje de Marcas">
+                            <p style="text-align:center;">LENGUAJE DE MARCAS</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="parrafoheader">
+            <p>
+                <div class="autor">
+                    <span class="titulo">Autor:</span>
+                    <span class="nombre">Esperanza Marchena</span>
+                </div>
+            </p>
+            <div>
+                <img src="../img/yosoyfp.PNG" alt="YoSoyFP"> 
+            </div>
+              
+        </div>
+       
+    </footer>
+</body>
+</html>
