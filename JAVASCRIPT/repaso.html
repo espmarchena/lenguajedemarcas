@@ -60,10 +60,10 @@
 
         document.getElementById('carrusel').innerHTML = relleno; /*busca el carrusel y su contenido lo sustituye por este otro valor (el relleno) */
 
-        for (let i = 0; i < imagenes.length; i++){ //LET delimita el ámbito de la variable i al bloque que hay entre llaves
+        for (let i = 0; i < imagenes.length; i++){ //LET delimita el ámbito local de la variable i al bloque que hay entre llaves
             document.getElementById('miniatura'+i).addEventListener('click', function(){
 
-                document.getElementById('lafoto').src = 'img/' + imagenes[i];
+                document.getElementById('lafoto').src = 'img/' + imagenes[i]; 
             });
         }
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #teclado, #pantalla, #capatotal{
+            width:60%;
+            margin:auto;
+            text-align: center;
+            display: flex;
+        }
+        #numerico, #digitos{
+            flex: 7;
+        }
+        #operaciones, #operacion{
+            flex: 3;
+        }
+        #digitos, #operacion{
+            font-size: 4em;
+            font-weight:bold;
+
+        }
+
+        #numerico input{
+            width: 30%; 
+            height: 60px;
+            margin: 5px;
+            font-size: 20px;
+        }
+        #operaciones input, #capatotal input {
+            width: 100%; 
+            height: 60px;
+            margin: 5px;
+            font-size: 40px;
+        }
+
+        input:active{
+            background-color: #FFDD88;
+        }
+    </style>
+</head>
+<body>
+    <div id="pantalla">
+        <div id="digitos"></div> <!-- donde aparecen visualmente los digitos que clickeamos -->
+        <div id="operacion"></div> <!-- donde aparecen visualmente los simbolos de las operaciones que clickeamos-->
+    </div>
+    <div id="teclado"> <!-- caja ppal. Contiene el div del teclado completo -->
+        <div id="numerico">
+
+
+        </div>
+        <div id="operaciones">
+            <input type="button" value="+" id="sumar"> 
+            <input type="button" value="-" id="restar">  
+            <input type="button" value="x" id="multiplicar"> 
+            <input type="button" value="÷" id="dividir"> 
+        </div>
+
+    </div>
+    <div id="capatotal"> <!-- div que almacena/contiene el boton ''='' -->
+        <input type="button" value="=" id="calcular">
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+       let relleno = ''; /* vacío */
+
+       
+       for (i = 9; i >= 0; i--){ /* la iteracion va en decremento mientras se cumple la condicion (mientras que i sea mayor a 0). El teclado numerico empieza en 9, por lo que i=9*/
+        relleno += '<input type="button" value="'+i+'" id="num'+i+'">\n'; /* value es el valor que se muestra en el botón. '\n' mete un enter en cada linea que itera */
+        /* += para acumular y no machacar en cada iteracion */
+       }
+       //alert(relleno); /* lo usamos para depurar. Controla como va rellenando la variable */
+
+       document.getElementById('numerico').innerHTML = relleno; /* busca el id numerico en el body, y su contenido lo sustituye por el del id 'relleno' */
+
+    });
+</script>
+
+</body>
+</html>
