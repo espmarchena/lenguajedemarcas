@@ -64,9 +64,9 @@
     </div>
 <script>
     document.addEventListener('DOMContentLoaded',function(){
-       let relleno = ''; /* vacío */
-
-       
+        let relleno = ''; /* vacío */
+        let resultado = 0;
+        
        for (i = 9; i >= 0; i--){ /* la iteracion va en decremento mientras se cumple la condicion (mientras que i sea mayor a 0). El teclado numerico empieza en 9, por lo que i=9*/
         relleno += '<input type="button" value="'+i+'" id="num'+i+'">\n'; /* value es el valor que se muestra en el botón. '\n' mete un enter en cada linea que itera */
         /* += para acumular y no machacar en cada iteracion */
@@ -74,6 +74,14 @@
        //alert(relleno); /* lo usamos para depurar. Controla como va rellenando la variable */
 
        document.getElementById('numerico').innerHTML = relleno; /* busca el id numerico en el body, y su contenido lo sustituye por el del id 'relleno' */
+
+       for(let i=9;i>=0;i--){
+                document.getElementById('num'+i).addEventListener('click', function(){ /* 'num' es el boton y le concateno la i. Cuando hace el evento de cliclar, aparece el numero*/
+                    numerico += i; /* sumo a la variable el valor de lo que se pulsa (i) */
+                    document.getElementById('digitos').innerHTML += i; /* concateno el valor del boton que pulso (i) en el contenido del div 'digitos'*/
+            });
+        }
+ 
 
     });
 </script>
