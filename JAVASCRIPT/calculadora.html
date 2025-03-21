@@ -47,10 +47,7 @@
         <div id="operacion"></div> <!-- donde aparecen visualmente los simbolos de las operaciones que clickeamos-->
     </div>
     <div id="teclado"> <!-- caja ppal. Contiene el div del teclado completo -->
-        <div id="numerico">
-
-
-        </div>
+        <div id="numerico"></div>
         <div id="operaciones">
             <input type="button" value="+" id="sumar"> 
             <input type="button" value="-" id="restar">  
@@ -65,7 +62,6 @@
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         let relleno = ''; /* vacío */
-        let resultado = 0;
         
        for (i = 9; i >= 0; i--){ /* la iteracion va en decremento mientras se cumple la condicion (mientras que i sea mayor a 0). El teclado numerico empieza en 9, por lo que i=9*/
         relleno += '<input type="button" value="'+i+'" id="num'+i+'">\n'; /* value es el valor que se muestra en el botón. '\n' mete un enter en cada linea que itera */
@@ -81,6 +77,23 @@
                     document.getElementById('digitos').innerHTML += i; /* concateno el valor del boton que pulso (i) en el contenido del div 'digitos'*/
             });
         }
+        /* -----------------------------------------------------------------------------------------------------------*/
+
+        document.getElementById('sumar').addEventListener('click', function () { /* cuando hace el evento de clicar, aparece 'sumar' */
+                document.getElementById('operacion').innerHTML = 'sumar'; /* coge el contenido del id operacion y lo sustituye por 'sumar' */
+            });
+ 
+            document.getElementById('restar').addEventListener('click', function () { /* cuando hace el evento de clicar, aparece 'restar' */
+                document.getElementById('operacion').innerHTML = 'restar'; /* coge el contenido del id operacion y lo sustituye por 'restar' */
+            });
+ 
+            document.getElementById('multiplicar').addEventListener('click', function () { /* cuando hace el evento de clicar, aparece 'multiplicar' */
+                document.getElementById('operacion').innerHTML = ' multiplicar'; /* coge el contenido del id operacion y lo sustituye por 'multiplicar' */
+            });
+ 
+            document.getElementById('dividir').addEventListener('click', function () { /* cuando hace el evento de clicar, aparece 'dividir' */
+                document.getElementById('operacion').innerHTML = 'dividir'; /* coge el contenido del id operacion y lo sustituye por 'dividir' */
+            });
  
 
     });
