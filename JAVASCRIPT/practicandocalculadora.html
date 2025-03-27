@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+    <style>
+
+        #teclado, #pantalla, #igual{ /* para los 3 divs principales */
+            width:60%;
+            margin:auto;
+            text-align: center;
+            display: flex;
+        }
+
+        #numeros, #digitos{
+            flex: 7;
+        }
+
+        #simbolos, #operacion{
+            flex: 3;
+        }
+
+        #digitos, #operacion{
+            font-size: 4em;
+            font-weight:bold;
+        }
+
+        #numeros input{ /* para los botones de los numeros */
+            width: 30%; 
+            height: 60px;
+            margin: 5px;
+            font-size: 20px;
+        }
+
+        #simbolos input, #igual input { /* para los botones de los simbolos */
+            width: 100%; 
+            height: 60px;
+            margin: 5px;
+            font-size: 40px;
+        }
+
+        input:active{ /* para el color de los botones cuando se pulsan */
+            background-color: #FFDD88;
+        }
+
+    </style>
+
+</head>
+<body>
+   
+    <!-- TRES DIV PRINCIPALES: PANTALLA, TECLADO, BOTON = -->
+
+    <!--PANTALLA CONTIENE LOS DIGITOS Y LOS SIMBOLOS QUE SE TECLEAN-->
+    <div id="pantalla">
+        <div id="digitos"></div> <!-- donde aparecen visualmente los digitos que clickeamos -->
+        <div id="operacion"></div> <!-- donde aparecen visualmente los simbolos de las operaciones que clickeamos-->
+    </div>
+
+    <!--TECLADO CONTIENE EL TECLADO COMPLETO (NUMEROS Y SIMBOLOS A CLICAR)-->
+    <div id="teclado">
+        <div id="numeros"></div>
+        <div id="simbolos">
+            <input type="button" value="+" id="sumar"> 
+            <input type="button" value="-" id="restar">  
+            <input type="button" value="x" id="multiplicar"> 
+            <input type="button" value="÷" id="dividir"> 
+        </div>
+    </div>
+
+    <div id="igual"> <!-- div que contiene el boton ''='' -->
+        <input type="button" value="=" id="calcular">
+    </div>
+
+
+    <script> /* para indicar que trabajamos con javascript */
+
+    document.addEventListener('DOMContentLoaded',function(){
+    /*Espera a que el navegador termine de cargar y procesar completamente el HTML del documento ANTES de ejecutar el código JavaScript que contiene*/
+
+
+    let relleno = ''; 
+    let operaciones = ['sumar', 'restar', 'multiplicar', 'dividir']; 
+    /* ARRAY PARA CONTENER LAS OPERACIONES DE LA CALCULADORA */
+    
+    for (i = 9; i >= 0; i--){
+        /* la iteracion empieza en 9 porque son los numeros que tiene la calculadora y va en decremento mientras que i sea igual o mayor que 0. */
+    
+        relleno += '<input type="button" value="'+i+'" id="num'+i+'">\n';
+        /* value es el valor que se muestra en el botón.
+        '\n' mete un enter en cada linea que itera
+        += para acumular y no machacar en cada iteracion */
+    }
+
+    document.getElementById('numeros').innerHTML = relleno;
+    /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "numeros" por el valor que contiene la variable relleno */
+
+    for(let i = 9; i >= 0; i--){
+        /* la iteracion empieza en 9 porque son los numeros que tiene la calculadora y va en decremento mientras que i sea igual o mayor que 0. */
+
+        document.getElementById('num'+i).addEventListener('click', function(){
+
+            numeros += i; /* sumo a la variable 'numeros' el valor de lo que se pulsa (i) */
+            document.getElementById('digitos').innerHTML += i;
+            /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "digitos" por el valor que contiene la variable relleno */
+        });
+    }    
+
+        /* VISUALIZACION */
+
+        for(let i=0; i<operaciones.length; i++){
+
+            document.getElementById(simbolos[i]).addEventListener('click', function () {
+            /*Busca un elemento con el id del array 'operaciones', asigna una función que se ejecutará al hacer clic y selecciona el elemento donde se mostrará la operación asignando el id del botón clickeado como contenido */ 
+
+                document.getElementById('operacion').innerHTML = this.id; /* coge el contenido del id operacion y lo sustituye por el simbolo correspondiente*/
+            });
+        }
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Tulipanes</title>
+</head>
+
+<style>
+    .cajacentrada{
+        text-align: center;
+    }
+
+    #grande{
+        width: 60%
+    }
+
+    #miniaturas img{
+        min-width: 90px;
+        width: 10%;
+    }
+
+    #miniaturas img{ /* nos referimos a las imagenes del div con id carrusel para cuando pase el puntero por encima */
+            cursor: pointer; /* cambiar el cursor del mouse a una mano 👆 */
+        }
+
+</style>
+
+<body>
+    <div id="fotogrande" class="cajacentrada"> <!-- la foto principal grande -->
+        <img src="img/colores.jpg" alt="tulipanes de colores" id="grande">
+    </div>
+
+    <div id="miniaturas" class="cajacentrada"> <!-- fotos en miniatura -->
+        <img src="img/colores.jpg" alt="foto1">
+        <img src="img/amarillos.jpg" alt="foto2">
+        <img src="img/rosas.jpg" alt="foto3">
+        <img src="img/blancos.jpg" alt="foto4">
+    </div>
+
+    <div id="botones" class="cajacentrada"> <!-- botones -->
+        <input type="button" id="bpalante" value="palante"> <!-- boton que avanza -->
+        <input type="button" id="bpatras" value="patras"> <!-- boton que retrocede -->
+    </div>
+    
+    <script> /* para indicar que trabajamos con javascript */
+
+        document.addEventListener('DOMContentLoaded', function(){
+        /*Espera a que el navegador termine de cargar y procesar completamente el HTML del documento ANTES de ejecutar el código JavaScript que contiene*/
+
+            let imagenes= ['colores.jpg', 'amarillos.jpg', 'rosas.jpg', 'blancos.jpg']; /* ARRAY PARA CONTENER LAS IMAGENES DEL CARRUSEL */
+
+            let puntero= 0; /* INDICE DE LA IMAGEN ACTUAL */
+            let relleno='';
+
+            for (let i=0; i<imagenes.length; i++){
+                relleno+='<img src="img/'+imagenes[i]+'"id="miniatura'+i+'" alt="imagenes tulipanes">'; /*concateno el array de imagenes al string 'relleno'*/
+            }
+
+            document.getElementById('miniaturas').innerHTML = relleno;
+            /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "miniaturas" por el valor que contiene la variable relleno */
+
+            for (let i=0; i < imagenes.length; i++){
+
+                document.getElementById('miniatura'+i).addEventListener('click', function(){
+                /*Busca un elemento con ID "miniatura0", "miniatura1", etc, añade un manejador para el evento click y cambia la fuente (src) de la imagen principal (id 'grande') por la imagen correspondiente del tulipan cuando le clickas*/
+                document.getElementById('grande').src = 'img/' + imagenes[i]; 
+                /*Hace posible que cambie la imagen principal del carrusel cuando haces clic en una miniatura */
+                });
+            }
+
+            // FUNCIONALIDAD BOTON PATRAS
+            document.getElementById('bpatras').addEventListener('click', function(){
+            /*Configura qué debe ocurrir (dentro de las llaves) cuando el usuario hace clic en el botón con id 'bpatras' del carrusel*/
+
+            puntero = (puntero <= 0) ? imagenes.length-1 : puntero-1;
+            // ternario:::: condición ? valorSiVerdadero : valorSiFalso
+            //si es igual o menor que cero, que empiece por el final del array, si es mayor que cero, restamos posicion
+
+            document.getElementById('grande').src = 'img/' + imagenes[puntero];
+            /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en el bucle for */
+            });
+            
+            // FUNCIONALIDAD BOTON PALANTE
+            document.getElementById('bpalante').addEventListener('click', function(){
+            /*Configura qué debe ocurrir (dentro de las llaves) cuando el usuario hace clic en el botón con id 'bpalante' del carrusel*/
+
+            puntero = (puntero >= imagenes.length-1) ? 0 : puntero+1; 
+            //ternario:::: condición ? valorSiVerdadero : valorSiFalso
+            //si el puntero está en la última posición del array, vuelve al inicio (índice 0), sino avanza al siguiente índice
+            
+            document.getElementById('grande').src = 'img/' + imagenes[puntero];
+             /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en el bucle for */
+            });
+
+
+}); 
+
+    </script>
+
+
+</body>
+</html>

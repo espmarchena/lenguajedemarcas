@@ -41,11 +41,14 @@
         }
     </style>
 </head>
+
+
 <body>
     <div id="pantalla">
         <div id="digitos"></div> <!-- donde aparecen visualmente los digitos que clickeamos -->
         <div id="operacion"></div> <!-- donde aparecen visualmente los simbolos de las operaciones que clickeamos-->
     </div>
+
     <div id="teclado"> <!-- caja ppal. Contiene el div del teclado completo -->
         <div id="numerico"></div>
         <div id="operaciones">
@@ -54,11 +57,12 @@
             <input type="button" value="x" id="multiplicar"> 
             <input type="button" value="÷" id="dividir"> 
         </div>
-
     </div>
     <div id="capatotal"> <!-- div que almacena/contiene el boton ''='' -->
         <input type="button" value="=" id="calcular">
     </div>
+
+    
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         let relleno = ''; /* vacío */
