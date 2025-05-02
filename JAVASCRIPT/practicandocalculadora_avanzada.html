@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        #teclado, #pantalla, #igual {
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            display: flex;
+        }
+        
+        #numeros, #digitos {
+            flex: 7;
+        }
+        
+        #simbolos, #operacion {
+            flex: 3;
+        }
+        
+        #digitos, #operacion {
+            font-size: 4em;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            min-height: 1.2em;
+        }
+        
+        #numeros input {
+            width: 30%;
+            height: 60px;
+            margin: 5px;
+            font-size: 20px;
+        }
+        
+        #simbolos input, #igual input {
+            width: 100%;
+            height: 60px;
+            margin: 5px;
+            font-size: 40px;
+        }
+        
+        input:active {
+            background-color: #FFDD88;
+        }
+    </style>
+</head>
+<body>
+    <div id="pantalla">
+        <div id="digitos"></div>
+        <div id="operacion"></div>
+    </div>
+
+    <div id="teclado">
+        <div id="numeros"></div>
+        <div id="simbolos">
+            <input type="button" value="+" id="sumar">
+            <input type="button" value="-" id="restar">
+            <input type="button" value="x" id="multiplicar">
+            <input type="button" value="÷" id="dividir">
+        </div>
+    </div>
+
+    <div id="igual">
+        <input type="button" value="=" id="calcular">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Generación de botones numéricos (9 al 0)
+            let relleno = '';
+            for(let i = 9; i >= 0; i--) {
+                relleno += '<input type="button" value="' + i + '" id="num' + i + '">\n';
+            }
+            document.getElementById('numeros').innerHTML = relleno;
+
+            // 2. Eventos para botones numéricos
+            for(let i = 9; i >= 0; i--) {
+                document.getElementById('num' + i).addEventListener('click', function() {
+                    let pantalla = document.getElementById('digitos');
+                    pantalla.innerHTML = (pantalla.innerHTML === '') ? i : pantalla.innerHTML + i;
+                });
+            }
+
+            // 3. Variables para operaciones
+            let numero1 = 0;
+            let operacionSeleccionada = '';
+            let operaciones = ['sumar', 'restar', 'multiplicar', 'dividir'];
+
+            // 4. Eventos para botones de operación
+            for(let i = 0; i < operaciones.length; i++) {
+                document.getElementById(operaciones[i]).addEventListener('click', function() {
+                    numero1 = parseFloat(document.getElementById('digitos').innerHTML);
+                    operacionSeleccionada = this.value;
+                    document.getElementById('operacion').innerHTML = operacionSeleccionada;
+                    document.getElementById('digitos').innerHTML = '';
+                });
+            }
+
+            // 5. Evento para botón igual (según lo mencionado en el PDF)
+            document.getElementById('calcular').addEventListener('click', function() {
+                let numero2 = parseFloat(document.getElementById('digitos').innerHTML);
+                let resultado = 0;
+                
+                switch(operacionSeleccionada) {
+                    case '+':
+                        resultado = numero1 + numero2;
+                        break;
+                    case '-':
+                        resultado = numero1 - numero2;
+                        break;
+                    case 'x':
+                        resultado = numero1 * numero2;
+                        break;
+                    case '÷':
+                        resultado = numero1 / numero2;
+                        break;
+                }
+                
+                document.getElementById('digitos').innerHTML = resultado;
+                document.getElementById('operacion').innerHTML = '';
+                numero1 = resultado;
+            });
+        });
+    </script>
+</body>
+</html>

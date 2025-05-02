@@ -39,8 +39,8 @@
     </div>
 
     <div id="botones" class="cajacentrada"> <!-- botones -->
-        <input type="button" id="bpalante" value="palante"> <!-- boton que avanza -->
-        <input type="button" id="bpatras" value="patras"> <!-- boton que retrocede -->
+        <input type="button" id="bpatras" value="patras"> <!-- boton que retrocede. Value es el nombre que se ve en el boton -->
+        <input type="button" id="bpalante" value="palante"> <!-- boton que avanza. Value es el nombre que se ve en el boton -->
     </div>
     
     <script> /* para indicar que trabajamos con javascript */
@@ -51,7 +51,7 @@
             let imagenes= ['colores.jpg', 'amarillos.jpg', 'rosas.jpg', 'blancos.jpg']; /* ARRAY PARA CONTENER LAS IMAGENES DEL CARRUSEL */
 
             let puntero= 0; /* INDICE DE LA IMAGEN ACTUAL */
-            let relleno='';
+            let relleno=''; /* string vacío */
 
             for (let i=0; i<imagenes.length; i++){
                 relleno+='<img src="img/'+imagenes[i]+'"id="miniatura'+i+'" alt="imagenes tulipanes">'; /*concateno el array de imagenes al string 'relleno'*/
@@ -78,8 +78,9 @@
             //si es igual o menor que cero, que empiece por el final del array, si es mayor que cero, restamos posicion
 
             document.getElementById('grande').src = 'img/' + imagenes[puntero];
-            /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en el bucle for */
+            /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en la condicion */
             });
+
             
             // FUNCIONALIDAD BOTON PALANTE
             document.getElementById('bpalante').addEventListener('click', function(){
@@ -90,7 +91,7 @@
             //si el puntero está en la última posición del array, vuelve al inicio (índice 0), sino avanza al siguiente índice
             
             document.getElementById('grande').src = 'img/' + imagenes[puntero];
-             /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en el bucle for */
+             /*Busca y selecciona el elemento con id "grande" y modifica la ruta de la imagen que se está mostrando(src) a la nueva ruta que se concatena después del simbolo =, que es el array de imagenes modificando las posiciones con la variable puntero en la condicion */
             });
 
 

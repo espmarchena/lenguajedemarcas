@@ -95,43 +95,32 @@
 
     document.getElementById('numeros').innerHTML = relleno;
     /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "numeros" por el valor que contiene la variable relleno */
+    // a partir de aqui ya existen los numeros, asi que necesitamos otro bucle para rellenar los digitos (la visual):
 
     for(let i = 9; i >= 0; i--){
-        /* la iteracion empieza en 9 porque son los numeros que tiene la calculadora y va en decremento mientras que i sea igual o mayor que 0. */
+    /* la iteracion empieza en 9 porque son los numeros que tiene la calculadora y va en decremento mientras que i sea igual o mayor que 0. */
 
         document.getElementById('num'+i).addEventListener('click', function(){
 
             numeros += i; /* sumo a la variable 'numeros' el valor de lo que se pulsa (i) */
             document.getElementById('digitos').innerHTML += i;
-            /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "digitos" por el valor que contiene la variable relleno */
+            /*Reemplaza TODO el contenido HTML (.innerHTML) dentro del id "digitos" por el valor que contiene la variable i */
         });
     }    
 
-        /* VISUALIZACION */
+    /* VISUALIZACION */
 
-        for(let i=0; i<operaciones.length; i++){
+    for(let i=0; i<operaciones.length; i++){
 
-            document.getElementById(simbolos[i]).addEventListener('click', function () {
-            /*Busca un elemento con el id del array 'operaciones', asigna una función que se ejecutará al hacer clic y selecciona el elemento donde se mostrará la operación asignando el id del botón clickeado como contenido */ 
+        document.getElementById(simbolos[i]).addEventListener('click', function () {
+        /*Busca un elemento con el id del array 'operaciones', asigna una función que se ejecutará al hacer clic y selecciona el elemento donde se mostrará la operación asignando el id del botón clickeado como contenido */ 
 
-                document.getElementById('operacion').innerHTML = this.id; /* coge el contenido del id operacion y lo sustituye por el simbolo correspondiente*/
-            });
-        }
+            document.getElementById('operacion').innerHTML = this.id; /* coge el contenido del id operacion y lo sustituye por el simbolo correspondiente*/
+        });
+    }
 
 
     });
-
-
-
-
-
-
-
-
-
-
-
-
 
     </script>
 

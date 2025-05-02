@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ejemplo Integrado</title> 
+</head> 
+<body> 
+    <input type="text" id="entrada" placeholder="Escribe algo"> 
+    <button id="boton">Agregar</button> 
+    <ul id="lista"></ul> 
+ 
+    <script> 
+        document.addEventListener('DOMContentLoaded', function() { 
+            const boton = document.getElementById('boton'); 
+            const lista = document.getElementById('lista'); 
+ 
+            boton.addEventListener('click', function() { 
+                const entrada = document.getElementById('entrada').value; 
+                if (entrada.trim() !== '') { 
+                    const li = document.createElement('li'); 
+                    li.textContent = entrada; 
+                    lista.appendChild(li); 
+                    document.getElementById('entrada').value = ''; 
+                } 
+            }); 
+        }); 
+    </script> 
+</body> 
+</html> 
