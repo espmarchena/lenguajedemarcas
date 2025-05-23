@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Fotos del Rover Curiosity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #e0e0e0;
+        }
+        img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fotos del Rover Curiosity en Marte</h1>
+    <button onclick="cargarDatos()">Cargar Fotos</button>  <!-- Botón para cargar los datos -->
+    <div id="tabla-datos"></div> <!-- Div donde se insertará la tabla de datos -->
+
+    <script>
+        function cargarDatos() { // Función que solicita los datos de la API de la NASA
+            const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY';
+            const xhr = new XMLHttpRequest(); // Crea un objeto (xhr) para hacer la solicitud HTTP
+            
+            xhr.open('GET', url, true); // Abre una solicitud de tipo GET (indica que queremos obtener/leer datos del servidor) de manera asíncrona (sin bloquear la página mientras se espera la respuesta)
+            xhr.onload = function () {  // Se ejecuta cuando la solicitud se complete correctamente
+
+                if (xhr.status === 200) { // Si el estado HTTP es 200 (OK)....
+                    const datos = JSON.parse(xhr.responseText); // Convierte el texto JSON a objeto (datos)
+                    mostrarTabla(datos.photos); // Llama a mostrarTabla con las fotos obtenidas
+                } else { // Sino, muestra un mensaje de error si algo falla
+                    document.getElementById("tabla-datos").innerHTML =
+                        "<p style='color:red; text-align:center;'>Error al cargar los datos.</p>";
+                }
+            };
+            xhr.send(); // Envía la solicitud
+        }
+
+        function mostrarTabla(fotos) { // Función que genera una tabla HTML con los datos recibidos
+            if (!fotos || fotos.length === 0) { // Si no hay fotos...
+                document.getElementById("tabla-datos").innerHTML =
+                    "<p style='text-align:center;'>No se encontraron fotos.</p>"; // Muestra un mensaje de error si algo falla
+                return; // Sale de la función
+            }
+
+             // Crea el encabezado de la tabla
+            let html = ` 
+                <table>
+                    <tr>
+                        <th>Fecha terrestre</th>
+                        <th>Cámara</th>
+                        <th>Imagen</th>
+                    </tr>
+            `;
+
+            // Recorre cada objeto foto y crea una fila en la tabla
+            for (let i = 0; i < fotos.length; i++) {
+                            let foto = fotos[i]; // Va recorriendo las fotos en cada iteraciónç
+                            // Durante el bucle se van añadiendo las filas <tr></tr>
+                            html += ` 
+                                <tr>
+                                    <td>${foto.earth_date}</td>
+                                    <td>${foto.camera.full_name}</td>
+                                    <td><img src="${foto.img_src}" alt="Foto Marte"></td>
+                                </tr>
+                            `;
+                        }
+
+            html += "</table>"; // Cierra la tabla después de terminar el bucle, concatenando la etiqueta de cierre </table> al final de todo el contenido acumulado en la variable html (Una vez que se ha recorrido toda la lista de fotos)
+            document.getElementById("tabla-datos").innerHTML = html; // Inserta la tabla en el div
+        }
+    </script>
+</body>
+</html>

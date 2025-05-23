@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<equipos>
+    <equipo>
+        <nombre>Betis</nombre>
+        <genero>David</genero>
+        <contacto>666999888</contacto>
+        <jugadores>
+            <jugador edad="35">
+                <nombre>Cristiano Ronaldo</nombre>
+                <apellido>Do Santos</apellido>
+            </jugador>
+
+            <jugador edad="37" nombre="Leo" apellido="Messi"> <!-- otra forma de ponerlo -->
+            </jugador>
+        </jugadores>
+    </equipo>
+</equipos>

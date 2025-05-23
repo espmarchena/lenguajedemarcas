@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo de Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e6f7ff;
+        }
+        .disponible {
+            color: green;
+            font-weight: bold;
+        }
+        .no-disponible {
+            color: red;
+        }
+        .stock-bajo {
+            color: orange;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catálogo Completo de Productos</h1>
+    <button onclick="cargarDatos()">Cargar Productos</button>
+    <div id="tabla-datos"></div>
+
+    <script>
+      /* función cargarJSon: prepara los datos que se han recibido para crear un objeto json que sea manipunable.
+     función: cargaJSon sirve para pedir o lanzar una petición y que le lleguen los datos a JSon, ésta función necesita dos datos, 
+     la url y una función " creartabla " que debe ejecutar " callback ".*/
+     
+        function cargarJSON(url, callback) {    /* url y callback se inicializan y reciben un valor en el mismo momento que se ejecuta.*/
+                                                /* callback = es la instancia de cualquier función que nosotros queramos, en éste caso 
+                                                es " creartabla ") */
+
+            /* lo primero que hace es pedir los datos*/
+            /* toda la información de antes de json.parse se llama "ajax", ajax= envía y prepara datos,
+            ajax información asíncrona, sin tener q abandonar la pg en la q estoy, la pg no se actualiza, se actualiza el div (es decir, 
+            no te lleva a otra pg si no que se despliega o expande la info que se le ha solicitado en ése momento) */
+
+            /*crea una variable " xhr " (objeto) de la clase XMLHttpRequest 
+            (request = petición en http para datos xml, http = marca las normas para contactar entre
+             equipos, utiliza el puerto 80, su característica adicional es que si se lanza la petición y hay resultado, es perfecto
+            */
+            const xhr = new XMLHttpRequest(); /* XMLHttpRequest= es un método reutilizado, sirve para todo tipo de lenguaje */
+
+            xhr.open('GET', url, true);     /* open = lanza la petición, método GET = envía datos, si miramos en cualquier página web
+                                            MODO EJEMPLO: pg web de Amazon su enlace se ve así : 
+                                            https://www.amazon.es/?&tag=hydesnav-21&ref=pd_sl_781oit2196_e&adgrpid=152290669839&hvpone=&hvptwo=&hvadid=672291362554&hvpos=&hvnetw=g&hvrand=3941405123084648525&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198451&hvtargid=kwd-10573980&hydadcr=4855_2227860a 
+                                            partir de la " ? " (son variables) * son los datos que necesita la pg para que se pueda ver de manera correcta* / 
+                                            url = a dónde? */
+                                            
+                                            /*INFORMACIÓN QUE AÚN NO VAMOS A USAR PERO ESTÁ BIEN SABER DE CARA AL CURSO QUE VIENE
+                                            método post = los datos no se ven, el usuario no lo ve, (url limpia), no tiene límite de datos a priori, 
+                                            permite adjuntar archivoS, el método post es el indicado para login de clientes, se utiliza mucho en los 
+                                            formularios */
+
+            xhr.onload = function() {       /* onload= cuando llegue la cabecera, cuando cargue */
+
+                if(xhr.status === 200) {    /* ese código que llega de vuelta está almacenado en " status ", si es correcto lo 1º que te llega es un 
+                                            código 200 y luego se carga todo */
+                   
+                    callback(JSON.parse(xhr.responseText)); /*json.parse (prepara todos los datos) pero esos datos tienen que llegar antes,
+                                                            de ahí todos los datos de justo arriba (ajax), el corazón de todo es json.parse */
+
+                } else {        /* si llegase un código 500, el navegador te muestra  por ejemplo *página no encontrada (404)*
+                                te mostrará segun el tipo de error que sea.*/
+
+                    document.getElementById("tabla-datos").innerHTML = 
+                        "<p style='color:red'>Error al cargar los datos. Asegúrate de que datos.json existe.</p>";
+                }
+            };
+            xhr.send(); /* aquí llamamos a nuestra función */
+        }
+
+        function crearTabla(productos) {
+             /* ` = la utilidad es igual que doble comillas */
+            let html = `  
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                        <th>Proveedor</th>
+                        <th>Valoración</th>
+                        <th>Disponible</th>
+                    </tr>
+            `;
+            
+            for(let i = 0; i < productos.length; i++) {
+                
+                let p = productos[i];
+                /* clasesStock en su ternario lo usa como la estructura a la que estamos acostumbrados, con un valor comparativo " > " */
+                let claseStock = p.stock < 10 ? "stock-bajo" : "";
+                /* claseStockdisponible (preparar una variable para preparar las clases y que los objetos se muestren de una manera concreta)*/
+                /* el ternario de claseDisponible lo hace directamente porque es un booleano y ya te da el resultado (true or false)*/
+                let claseDisponible = p.disponible ? "disponible" : "no-disponible";
+                
+                let textoDisponible = p.disponible ? "Sí" : "No";
+               /* ` = en ésta ocasión son especiales, si utilizo esto ya no tengo que trocear el código como hacíamos antes,
+                que lo concatenabamos, ahora sólo tengo que poner (Ejemplo: ${p.id} la id es nuestra variable) */
+                html += `   
+                    <tr>
+                        <td>${p.id}</td>
+                        <td>${p.nombre}</td>
+                        <td>${p.categoria}</td>
+                        <td>${p.precio.toFixed(2)}€</td>
+                        <td class="${claseStock}">${p.stock}</td>
+                        <td>${p.proveedor}</td>
+                        <td>${p.valoracion}</td>
+                        <td class="${claseDisponible}">${textoDisponible}</td>
+                    </tr>
+                `;
+            }
+            
+            html += `</table>`;
+            document.getElementById("tabla-datos").innerHTML = html;
+        }
+
+        function cargarDatos() { 
+            cargarJSON('datos.json', crearTabla); /* quiero que json ejecute creartabla, " callback " se encarga de esto */
+        }
+
+      
+    </script>
+</body>
+</html>

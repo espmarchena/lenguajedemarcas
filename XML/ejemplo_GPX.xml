@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="MiAplicacionGPS" xmlns="http://www.topografix.com/GPX/1/1">
+  
+  <!-- Metadatos del archivo -->
+  <metadata>
+    <name>Ruta de senderismo</name>
+    <desc>Ruta por el Parque Nacional</desc>
+    <author>
+        <name>John Doe</name>
+    </author>
+    <time>2023-05-15T08:00:00Z</time>
+  </metadata>
+
+  <!-- Waypoints (puntos de interés) -->
+  <wpt lat="40.416775" lon="-3.703790">
+    <name>Madrid</name>
+    <desc>Capital de España</desc>
+  </wpt>
+
+  <wpt lat="41.385063" lon="2.173404">
+    <name>Barcelona</name>
+    <ele>12.0</ele>  <!-- Elevación en metros -->
+    <cmt>Ciudad costera</cmt>
+  </wpt>
+
+  <!-- Track (ruta seguida) -->
+  <trk>
+    <name>Mi ruta</name>
+    <trkseg>
+      <trkpt lat="40.416775" lon="-3.703790">
+        <ele>667.0</ele>
+        <time>2023-05-15T08:00:00Z</time>
+      </trkpt>
+      <trkpt lat="40.418000" lon="-3.704500">
+        <ele>670.5</ele>
+        <time>2023-05-15T08:15:00Z</time>
+      </trkpt>
+      <trkpt lat="40.419200" lon="-3.706000">
+        <ele>675.2</ele>
+        <time>2023-05-15T08:30:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+
+</gpx>

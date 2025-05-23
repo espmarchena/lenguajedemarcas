@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<carta>
+
+    <entrante>
+        <plato precio="4.50€">
+            <nombre>Edamame</nombre>
+            <descripcion>Vainas de soja tierna con sal marina</descripcion>
+            <ingredientes>
+                <ingrediente alergeno="true">Soja</ingrediente>
+                <ingrediente>Sal marina</ingrediente>
+            </ingredientes>
+        </plato>
+    </entrante>
+
+    <platoprincipal>
+        <plato precio="12.50€">
+            <nombre>Uramaki California</nombre>
+            <descripcion>Rollo invertido (el arroz envuelve el relleno y el alga nori queda en el
+                interior) con cangrejo, aguacate y pepino</descripcion>
+            <ingredientes>
+                <ingrediente>Arroz</ingrediente>
+                <ingrediente alergeno="true">Surimi</ingrediente>
+                <ingrediente>Aguacate</ingrediente>
+                <ingrediente>Pepino</ingrediente>
+                <ingrediente alergeno="true">Sésamo</ingrediente>
+                <ingrediente>Alga Nori</ingrediente>
+            </ingredientes>
+        </plato>
+    </platoprincipal>
+
+    <postre>
+        <plato precio="6.00€">
+            <nombre>Mochi Ice Cream</nombre>
+            <descripcion>Helado japonés envuelto en pasta de arroz (sabores: té verde, mango)</descripcion>
+            <ingredientes>
+                <ingrediente>Helado de té verde</ingrediente>
+                <ingrediente>Helado de mango</ingrediente>
+                <ingrediente>Masa de arroz</ingrediente>
+            </ingredientes>
+            <alergenos>
+                <alergeno>lácteos</alergeno>
+            </alergenos>
+        </plato>
+    </postre>
+
+</carta>

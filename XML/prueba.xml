@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juegos>
+    <juego>
+        <nombre>LOL</nombre>
+        <genero>Moba</genero>
+        <anio>2007</anio>
+    </juego>
+    <juego>
+        <nombre>Zelda</nombre>
+        <genero>RPG</genero>
+        <anio>1990</anio>
+    </juego>
+</juegos>
